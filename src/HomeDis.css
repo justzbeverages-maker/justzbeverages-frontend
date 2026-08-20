@@ -3,13 +3,16 @@
 .drink-grid {
     display: grid;
     grid-template-columns: 1fr .75fr;
-    grid-template-rows: auto;
+    grid-template-rows: 94vh;
+    height: 94vh;
+    overflow: hidden;
 }
 
 .drink-images {
     background-color: #FFE4C4; /* bisque */
-    height: 94vh;
+    height: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .drink-images img {
@@ -36,9 +39,11 @@
     justify-content: center;
     align-items: center;
     background-color: #FFEBCD; /* blanchedalmond */
-    height: 94vh;
+    height: 100%;
     padding: 0 4rem; 
     text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .description-header {
@@ -58,19 +63,26 @@
     line-height: 1.6;
     font-weight: 400;
     z-index: 101;
-    max-width: 80%; 
+    max-width: 80%;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 @media (max-width: 800px) {
     .drink-grid {
         grid-template-columns: 1fr;
-        flex-direction: column-reverse;
+        grid-template-rows: 47vh 47vh;
+        height: 94vh;
     }
-    
+
     .drink-images {
         height: 47vh;
+        order: -1;
     }
-    
+
     .drink-discription {
         height: 47vh;
         padding: 2rem 1.5rem;
@@ -87,5 +99,7 @@
         font-size: 1.1rem;
         max-width: 100%;
         padding: 0;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
     }
 }

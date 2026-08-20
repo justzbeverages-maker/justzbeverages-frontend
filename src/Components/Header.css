@@ -1,0 +1,40 @@
+.navBar{
+    display:flex;
+    position:sticky;
+    top:0;
+    height:6vh;
+    width:100%;
+    z-index:10000;
+}
+.logo{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    background-color:#C9B99A;
+    width:8rem;
+    height:6vh;
+    font-size:2rem;
+}
+.nav-cen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#C9B99A;
+    height:6vh;
+    flex-grow: 1;
+    font-size: 1rem;
+
+}
+.nav{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    background-color:#C9B99A;
+    font-size:1.5rem;
+    width:3rem;
+    height:6vh;
+    cursor: pointer;
+}
+.navlink{
+    color:rgba(10, 9, 9, 0.919);
+}

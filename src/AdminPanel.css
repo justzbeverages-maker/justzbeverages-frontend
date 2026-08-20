@@ -1,0 +1,68 @@
+.admin {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: #faf8f4;
+}
+
+.admin-side {
+  width: 210px;
+  flex-shrink: 0;
+  background: #C9B99A;
+  padding: 2rem 1rem;
+}
+
+.admin-logo {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.admin-tab {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.3rem;
+  font: inherit;
+  color: rgba(10, 9, 9, 0.919);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.admin-tab:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.admin-tab.active {
+  background: white;
+  font-weight: 600;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 3rem;
+  overflow-x: auto;
+}
+
+@media (max-width: 700px) {
+  .admin {
+    flex-direction: column;
+  }
+  .admin-side {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  .admin-logo {
+    margin: 0 1rem 0 0;
+  }
+  .admin-content {
+    padding: 1.5rem;
+  }
+}

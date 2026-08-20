@@ -1,0 +1,105 @@
+.product-grid{
+    position: relative;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 75vh;
+    padding:5px 0 20px 0;
+    gap: .5vw;
+    width:100%;
+}
+.product-track{
+    /* on desktop/tablet the track is invisible in the DOM tree so
+       each .element still participates directly in the parent grid */
+    display:contents;
+}
+.element{
+    position: relative;
+    margin:10px;
+    height:80%;
+    background-color:rgba(239, 236, 236, 0.849);
+    border-radius:10px;
+    perspective: 1000px;
+    transition: transform 1s ease;
+}
+.elementOnClick{
+    transform:rotateY(180deg);
+}
+.empty{
+    background-color: blanchedalmond;
+}
+.element img{
+    object-fit: fill;
+    border-radius:15px;
+    width:100%;
+    height:100%;
+    background-position: center;
+    transition: opacity .5s ease;
+}
+.back{
+    position: absolute;
+    top:0;
+    left:0;
+    opacity: 0;
+}
+
+.frontOnClick{
+    opacity: 0;
+}
+.backOnClick{
+    transform:scaleX(-1);
+    opacity:1;
+}
+
+.product-dots{
+    display:none;
+}
+
+@media(max-width:800px){
+    .product-grid{
+        display:block;
+        position:relative;
+        overflow:hidden;
+        width:100%;
+        height:100%;
+        padding:0;
+    }
+    .product-track{
+        display:flex;
+        height:100%;
+        transition: transform .35s ease-out;
+        touch-action: pan-y;
+    }
+    .element{
+        flex:0 0 100%;
+        max-width:100%;
+        height:100%;
+        box-sizing:border-box;
+        padding:10px 10px 30px 10px;
+        margin:0 0 10px 0;
+        background-color:#ffebcd;
+    }
+    .element img{
+        border-radius:15px;
+    }
+    .product-dots{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:8px;
+        position:absolute;
+        bottom:6px;
+        left:0;
+        width:100%;
+        z-index:5;
+    }
+    .dot{
+        width:8px;
+        height:8px;
+        border-radius:50%;
+        background-color:rgba(0,0,0,0.25);
+        cursor:pointer;
+    }
+    .dot-active{
+        background-color:rgba(0,0,0,0.7);
+    }
+}

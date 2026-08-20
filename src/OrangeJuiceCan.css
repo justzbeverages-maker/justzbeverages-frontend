@@ -1,0 +1,248 @@
+/* OrangeJuiceCan.css
+   All rules are scoped under .ojc-root so this can be dropped into any
+   project without leaking styles onto html/body/canvas globally.
+
+   Re-skinned to the "JUSTZ" reference: matte sage-green can body, gold
+   serif branding, watermelon-slice line art, brushed aluminum lid/base.
+   The pouring liquid is now a wine/burgundy tone instead of citrus amber. */
+
+:root {
+  /* Can body palette (sage / gold, matching the JUSTZ reference) */
+  --ojc-sage: #b9c39c;
+  --ojc-sage-dark: #8b9670;
+  --ojc-sage-light: #d3d9bd;
+  --ojc-gold: #a9793f;
+  --ojc-gold-dark: #7c5729;
+  --ojc-text-ink: #5f5b45;
+
+  /* Aluminum lid / base palette */
+  --ojc-metal-hi: #f6f7f5;
+  --ojc-metal-lo: #9aa09a;
+  --ojc-metal-dark: #454b47;
+
+  /* Liquid stream & puddle colors -- wine/burgundy.
+     These ARE consumed directly by the canvas drawing code in
+     OrangeJuiceCan.jsx (read via getComputedStyle at runtime), so
+     changing them here now actually changes the pour color. */
+  --ojc-liquid-color: #7a1330;         /* Core wine body */
+  --ojc-liquid-color-dark: #3d0916;    /* Deep shadow / far edge of stream */
+  --ojc-liquid-color-highlight: #c24361; /* Bright rim / foam-adjacent highlight */
+  --ojc-liquid-color-light: #b0335a;   /* Mid-tone used for softer fills */
+}
+
+.ojc-root {
+  font-family: system-ui, -apple-system, sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  overflow: visible;
+}
+
+/* Top-right of the document — scrolls away; only the canvas stream stays visible. */
+.ojc-pin {
+  position: absolute;
+  top: 6vh;
+  right: 4vw;
+  z-index: 25;
+  box-sizing: border-box;
+  pointer-events: auto;
+}
+
+.ojc-stage {
+  position: relative;
+  width: 7rem;
+  height: 12rem;
+}
+
+.ojc-hint {
+  position: fixed;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 30;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* These stay pinned to the viewport regardless of scroll — this is the
+   layer the user should always see (stream + puddle), even after the can
+   itself has scrolled out of view. */
+.ojc-fluid-layer,
+.ojc-detail-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+.ojc-fluid-layer { z-index: 20; }
+.ojc-detail-canvas { z-index: 21; }
+
+.ojc-root canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ojc-scene {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(-52deg);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  filter: drop-shadow(-0.35rem 1.3rem 0.8rem rgba(0, 0, 0, 0.55));
+}
+.ojc-scene:active { cursor: grabbing; }
+
+/* CAN BODY - cylindrical illusion via layered gradients */
+.ojc-can {
+  position: relative;
+  width: 4.2rem;
+  height: 7.9rem;
+  border-radius: 0.35rem;
+  overflow: hidden;
+  background-color: var(--ojc-sage);
+  /* Realistic can silhouette: straight sides for most of the body, with a
+     short neck-in right at the top (where it meets the lid) and a slight
+     flare right at the bottom (where it meets the base rim). */
+  clip-path: polygon(
+    6% 0%, 94% 0%,
+    98% 6%, 98% 96%,
+    100% 100%, 0% 100%,
+    2% 96%, 2% 6%
+  );
+
+  background-image:
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.32) 0%,
+      rgba(255, 255, 255, 0.16) 8%,
+      rgba(255, 255, 255, 0.32) 14%,
+      rgba(255, 255, 255, 0.03) 22%,
+      rgba(0, 0, 0, 0.04) 40%,
+      rgba(0, 0, 0, 0.04) 60%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0.24) 90%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    repeating-linear-gradient(90deg,
+      rgba(255, 255, 255, 0.025) 0px,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22600%22%3E%0A%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22%23b9c39c%22%2F%3E%0A%3Crect%20width%3D%22600%22%20height%3D%22600%22%20fill%3D%22url%28%23shade%29%22%20opacity%3D%220.5%22%2F%3E%0A%3Cdefs%3E%0A%3ClinearGradient%20id%3D%22shade%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23c9d1ae%22%2F%3E%0A%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23a7b189%22%2F%3E%0A%3C%2FlinearGradient%3E%0A%3C%2Fdefs%3E%0A%3Ctext%20x%3D%22300%22%20y%3D%22165%22%20font-family%3D%22Georgia%2C%20Cambria%2C%20serif%22%20font-size%3D%2278%22%20font-weight%3D%22700%22%20fill%3D%22%23a9793f%22%20text-anchor%3D%22middle%22%20letter-spacing%3D%226%22%3EJUSTZ%3C%2Ftext%3E%0A%3Ctext%20x%3D%22300%22%20y%3D%22235%22%20font-family%3D%22Georgia%2C%20Cambria%2C%20serif%22%20font-size%3D%2223%22%20fill%3D%22%235f5b45%22%20text-anchor%3D%22middle%22%20letter-spacing%3D%221%22%3ECarbonated%20Water%3C%2Ftext%3E%0A%3Ctext%20x%3D%22300%22%20y%3D%22270%22%20font-family%3D%22Georgia%2C%20Cambria%2C%20serif%22%20font-size%3D%2223%22%20fill%3D%22%235f5b45%22%20text-anchor%3D%22middle%22%20letter-spacing%3D%221%22%3EWatermelon%20Extract%3C%2Ftext%3E%0A%3Ctext%20x%3D%22300%22%20y%3D%22305%22%20font-family%3D%22Georgia%2C%20Cambria%2C%20serif%22%20font-size%3D%2223%22%20fill%3D%22%235f5b45%22%20text-anchor%3D%22middle%22%20letter-spacing%3D%221%22%3ELime%20Oil%3C%2Ftext%3E%0A%3Ctext%20x%3D%22300%22%20y%3D%22340%22%20font-family%3D%22Georgia%2C%20Cambria%2C%20serif%22%20font-size%3D%2223%22%20fill%3D%22%235f5b45%22%20text-anchor%3D%22middle%22%20letter-spacing%3D%221%22%3EPrebiotic%20Fiber%3C%2Ftext%3E%0A%3Ctext%20x%3D%22300%22%20y%3D%22375%22%20font-family%3D%22Georgia%2C%20Cambria%2C%20serif%22%20font-size%3D%2223%22%20fill%3D%22%235f5b45%22%20text-anchor%3D%22middle%22%20letter-spacing%3D%221%22%3ENatural%20Flavors%3C%2Ftext%3E%0A%3Ctext%20x%3D%22300%22%20y%3D%22410%22%20font-family%3D%22Georgia%2C%20Cambria%2C%20serif%22%20font-size%3D%2223%22%20fill%3D%22%235f5b45%22%20text-anchor%3D%22middle%22%20letter-spacing%3D%221%22%3EStevia%3C%2Ftext%3E%0A%3Cg%20transform%3D%22translate%28128%2C468%29%20rotate%28-18%29%22%20fill%3D%22none%22%20stroke%3D%22%23a9793f%22%20stroke-width%3D%222.4%22%20opacity%3D%220.6%22%3E%0A%3Cpath%20d%3D%22M%200%20-52%20A%2052%2052%200%200%201%2045%2026%20L%200%2052%20L%20-45%2026%20A%2052%2052%200%200%201%200%20-52%20Z%22%2F%3E%0A%3Cpath%20d%3D%22M%200%20-42%20A%2042%2042%200%200%201%2036%2021%20L%200%2042%20L%20-36%2021%20A%2042%2042%200%200%201%200%20-42%20Z%22%20stroke-width%3D%221.6%22%2F%3E%0A%3Cellipse%20cx%3D%22-10%22%20cy%3D%220%22%20rx%3D%223.2%22%20ry%3D%225.5%22%20transform%3D%22rotate%28-10%20-10%200%29%22%20fill%3D%22%23a9793f%22%20stroke%3D%22none%22%2F%3E%0A%3Cellipse%20cx%3D%2212%22%20cy%3D%225%22%20rx%3D%223.2%22%20ry%3D%225.5%22%20transform%3D%22rotate%2815%2012%205%29%22%20fill%3D%22%23a9793f%22%20stroke%3D%22none%22%2F%3E%0A%3Cellipse%20cx%3D%220%22%20cy%3D%2222%22%20rx%3D%223.2%22%20ry%3D%225.5%22%20fill%3D%22%23a9793f%22%20stroke%3D%22none%22%2F%3E%0A%3Cellipse%20cx%3D%22-18%22%20cy%3D%2218%22%20rx%3D%223%22%20ry%3D%225%22%20transform%3D%22rotate%28-20%20-18%2018%29%22%20fill%3D%22%23a9793f%22%20stroke%3D%22none%22%2F%3E%0A%3C%2Fg%3E%0A%3Cg%20transform%3D%22translate%28472%2C468%29%20rotate%2818%29%20scale%28-1%2C1%29%22%20fill%3D%22none%22%20stroke%3D%22%23a9793f%22%20stroke-width%3D%222.4%22%20opacity%3D%220.6%22%3E%0A%3Cpath%20d%3D%22M%200%20-52%20A%2052%2052%200%200%201%2045%2026%20L%200%2052%20L%20-45%2026%20A%2052%2052%200%200%201%200%20-52%20Z%22%2F%3E%0A%3Cpath%20d%3D%22M%200%20-42%20A%2042%2042%200%200%201%2036%2021%20L%200%2042%20L%20-36%2021%20A%2042%2042%200%200%201%200%20-42%20Z%22%20stroke-width%3D%221.6%22%2F%3E%0A%3Cellipse%20cx%3D%22-10%22%20cy%3D%220%22%20rx%3D%223.2%22%20ry%3D%225.5%22%20transform%3D%22rotate%28-10%20-10%200%29%22%20fill%3D%22%23a9793f%22%20stroke%3D%22none%22%2F%3E%0A%3Cellipse%20cx%3D%2212%22%20cy%3D%225%22%20rx%3D%223.2%22%20ry%3D%225.5%22%20transform%3D%22rotate%2815%2012%205%29%22%20fill%3D%22%23a9793f%22%20stroke%3D%22none%22%2F%3E%0A%3Cellipse%20cx%3D%220%22%20cy%3D%2222%22%20rx%3D%223.2%22%20ry%3D%225.5%22%20fill%3D%22%23a9793f%22%20stroke%3D%22none%22%2F%3E%0A%3Cellipse%20cx%3D%22-18%22%20cy%3D%2218%22%20rx%3D%223%22%20ry%3D%225%22%20transform%3D%22rotate%28-20%20-18%2018%29%22%20fill%3D%22%23a9793f%22%20stroke%3D%22none%22%2F%3E%0A%3C%2Fg%3E%0A%3Ctext%20x%3D%22300%22%20y%3D%22545%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22600%22%20fill%3D%22%235f5b45%22%20text-anchor%3D%22middle%22%20letter-spacing%3D%225%22%3EHIDE%20NOTHING.%3C%2Ftext%3E%0A%3C%2Fsvg%3E');
+  background-size: 100% 100%, 100% 100%, auto 100%;
+  background-position: 0 0, 0 0, 0px 0;
+  background-repeat: no-repeat, repeat, repeat-x;
+  background-blend-mode: normal, overlay, normal;
+
+  box-shadow:
+    inset -1rem 0 1.4rem rgba(0, 0, 0, 0.28),
+    inset 0.7rem 0 1rem rgba(255, 255, 255, 0.1),
+    inset 0.15rem 0 0.2rem rgba(255, 255, 255, 0.3);
+}
+
+/* subtle specular sheen sweep, independent of the label texture */
+.ojc-can::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.14) 10%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0) 78%,
+    rgba(255, 255, 255, 0.08) 86%,
+    rgba(255, 255, 255, 0) 96%
+  );
+  mix-blend-mode: screen;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.ojc-lid {
+  position: absolute;
+  top: -0.35rem;
+  left: 0.22rem;
+  width: 3.78rem;
+  height: 0.72rem;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 35% 30%, var(--ojc-metal-hi) 0%, #d8dcd6 35%, var(--ojc-metal-lo) 70%, var(--ojc-metal-dark) 100%);
+  border: 1px solid #5a615c;
+  box-sizing: border-box;
+  z-index: 6;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.45), inset 0 -2px 3px rgba(255, 255, 255, 0.4);
+}
+.ojc-lid-score {
+  position: absolute;
+  top: 15%; left: 8%; width: 84%; height: 70%;
+  border-radius: 50%;
+  border: 1px dashed rgba(60, 70, 65, 0.35);
+}
+
+.ojc-pop-tab {
+  position: absolute;
+  top: 0.13rem;
+  left: 0.52rem;
+  width: 0.5rem;
+  height: 0.35rem;
+  background: linear-gradient(135deg, #fff, #a4aaa4 60%, #5f665f);
+  border-radius: 0.2rem;
+  border: 1px solid #4b524d;
+  transform: rotate(-12deg);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+.ojc-pop-tab::after {
+  content: '';
+  position: absolute;
+  top: 0.05rem; left: 0.09rem;
+  width: 0.32rem; height: 0.16rem;
+  border-radius: 50%;
+  border: 1px solid rgba(60, 70, 65, 0.6);
+}
+
+.ojc-spout {
+  position: absolute;
+  top: 0.14rem;
+  left: 0.13rem;
+  width: 0.4rem;
+  height: 0.25rem;
+  background: radial-gradient(ellipse at 40% 30%, #2a1200, #000);
+  border-radius: 50%;
+  box-shadow: inset 0 0 3px #000, 0 0 2px rgba(0, 0, 0, 0.6);
+}
+
+.ojc-bottom {
+  position: absolute;
+  bottom: -0.32rem;
+  left: 0.1rem;
+  width: 4rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: linear-gradient(to right, #33372f, #b7bdae, #eef1e8, #8c917f, #33372f);
+  border: 1px solid #4b4f44;
+  box-sizing: border-box;
+  z-index: -1;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.35);
+}
+@media (max-width: 480px) {
+  .ojc-pin {
+    top: 5vh;
+    right: 3vw;
+  }
+
+  .ojc-stage {
+    transform: scale(0.85);
+    transform-origin: top right;
+  }
+}

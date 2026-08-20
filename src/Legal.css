@@ -1,0 +1,27 @@
+.legal-container {
+  max-width: 60rem; 
+  margin: 5vh auto; 
+  padding: 3rem;
+  background-color: #FAFAFA;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif; 
+  color: #333333;
+  line-height: 1.6;
+}
+
+.legal-container h1 {
+  font-family: 'Playfair Display', serif; 
+  font-size: 2.5rem;
+  color: #3E2723;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.legal-container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #3E2723;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}

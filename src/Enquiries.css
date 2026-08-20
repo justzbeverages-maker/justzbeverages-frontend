@@ -1,0 +1,65 @@
+.enquiries h1 {
+  font-size: 2rem;
+  margin: 0 0 1.5rem;
+}
+
+.enquiries-msg {
+  color: rgba(10, 9, 9, 0.6);
+}
+
+.enquiries-list {
+  display: grid;
+  gap: 1rem;
+  max-width: 640px;
+}
+
+.enquiry-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.enquiry-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.enquiry-top span {
+  color: rgba(10, 9, 9, 0.45);
+  font-size: 0.85rem;
+}
+
+.enquiry-contact {
+  color: rgba(10, 9, 9, 0.6);
+  font-size: 0.9rem;
+  margin: 0 0 0.6rem;
+}
+
+.enquiry-message {
+  margin: 0 0 0.9rem;
+  line-height: 1.5;
+}
+
+.enquiry-delete {
+  border: 1px solid rgba(178, 58, 46, 0.35);
+  background: rgba(178, 58, 46, 0.06);
+  color: #b23a2e;
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.enquiry-delete:hover:not(:disabled) {
+  background: rgba(178, 58, 46, 0.14);
+}
+
+.enquiry-delete:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

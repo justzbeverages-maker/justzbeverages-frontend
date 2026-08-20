@@ -1,0 +1,16 @@
+.hero-section{
+    position: relative;
+    height:94vh;
+    width:100%;
+   z-index:110;
+}
+.hero-section img{
+    width:100%;
+    height:100%;
+     transition:transform 1s ease-out;
+    object-fit: cover;
+}
+.hero-section img:hover{
+    transform:scale(1.03);
+}
+

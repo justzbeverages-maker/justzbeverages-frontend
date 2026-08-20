@@ -1,0 +1,61 @@
+/* OrangeJuiceCan.css
+   All rules are scoped under .ojc-root so this can be dropped into any
+   project without leaking styles onto html/body/canvas globally.
+
+   The can illustration and pouring animation have been removed — only the
+   scroll-driven rising puddle at the bottom of the screen remains. */
+
+:root {
+  /* Liquid puddle color -- wine/burgundy.
+     These ARE consumed directly by the canvas drawing code in
+     OrangeJuiceCan.jsx (read via getComputedStyle at runtime), so
+     changing them here now actually changes the puddle color. */
+  --ojc-liquid-color: #7a1330;         /* Core wine body */
+  --ojc-liquid-color-dark: #3d0916;    /* Deep shadow / far edge */
+  --ojc-liquid-color-highlight: #c24361; /* Bright rim / surface highlight */
+  --ojc-liquid-color-light: #b0335a;   /* Mid-tone used for softer fills */
+}
+
+.ojc-root {
+  font-family: system-ui, -apple-system, sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  overflow: visible;
+}
+
+.ojc-hint {
+  position: fixed;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 30;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* These stay pinned to the viewport regardless of scroll — the puddle
+   layer the user should always see at the bottom of the screen. */
+.ojc-fluid-layer,
+.ojc-detail-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+.ojc-fluid-layer { z-index: 20; }
+.ojc-detail-canvas { z-index: 21; }
+
+.ojc-root canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

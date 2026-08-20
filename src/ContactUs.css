@@ -1,0 +1,196 @@
+.contact-page {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgba(10, 9, 9, 0.919);
+  background-color: white;
+}
+
+.contact-page *,
+.contact-page *::before,
+.contact-page *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- hero band: same tan family as the nav ---------- */
+
+.contact-hero {
+  background-color: #d0c1a5b5;
+  padding: 8vh 6vw 6vh;
+  text-align: center;
+}
+
+.contact-hero h1 {
+  margin: 0 0 1.2vh;
+  font-size: 5vh;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.contact-hero p {
+  margin: 0;
+  font-size: 2.2vh;
+  color: rgba(10, 9, 9, 0.75);
+}
+
+/* ---------- body: info + form ---------- */
+
+.contact-body {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 6vw;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8vh 6vw;
+}
+
+.contact-info h2 {
+  font-size: 5vh;
+  font-weight: 600;
+  margin: 0 0 2vh;
+}
+
+.contact-info p {
+  font-size: 3vh;
+  line-height: 1.6;
+  color: rgba(10, 9, 9, 0.75);
+  margin: 0 0 4vh;
+}
+
+.info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4vh;
+}
+
+.info-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4vh;
+  border-left: 3px solid #C9B99A;
+  padding-left: 1.2vw;
+}
+
+.info-label {
+  font-size: 1.6vh;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(10, 9, 9, 0.55);
+}
+
+.info-list a,
+.info-list span:not(.info-label) {
+  font-size: 2vh;
+  color: rgba(10, 9, 9, 0.919);
+  text-decoration: none;
+}
+
+.info-list a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- form ---------- */
+
+.contact-form-wrap {
+  background-color: #d0c1a54d;
+  padding: 4vh 3vw;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4vh;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vh;
+  font-size: 1.8vh;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-family: inherit;
+  font-size: 2vh;
+  font-weight: 400;
+  color: rgba(10, 9, 9, 0.919);
+  background-color: white;
+  border: 1px solid #C9B99A;
+  padding: 1.4vh 1.2vw;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(10, 9, 9, 0.4);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid #C9B99A;
+  outline-offset: 1px;
+}
+
+.btn {
+  align-self: flex-start;
+  font-family: inherit;
+  font-size: 2vh;
+  font-weight: 600;
+  color: rgba(10, 9, 9, 0.919);
+  background-color: #C9B99A;
+  border: none;
+  padding: 1.4vh 3vw;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn:hover {
+  background-color: #b8a687;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  border: 1px solid #C9B99A;
+}
+
+.btn-ghost:hover {
+  background-color: #C9B99A;
+}
+
+.contact-success {
+  text-align: center;
+  padding: 4vh 0;
+}
+
+.contact-success h2 {
+  font-size: 2.8vh;
+  margin: 0 0 1.2vh;
+}
+
+.contact-success p {
+  font-size: 1.9vh;
+  color: rgba(10, 9, 9, 0.75);
+  margin: 0 0 3vh;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 800px) {
+  .contact-body {
+    grid-template-columns: 1fr;
+    padding: 6vh 6vw;
+    gap: 5vh;
+  }
+
+  .contact-hero h1 {
+    font-size: 4vh;
+  }
+
+  .contact-hero p {
+    font-size: 2vh;
+  }
+}

@@ -1,0 +1,45 @@
+.footer{
+    background-color: white; /* Rich maroon background to match your site */
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+.social-media{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:.5vh;
+    height:6vh;
+}
+.social-media a{
+    height:100%;
+    z-index:106;
+}
+.social-media img{
+    height:100%;
+    padding:.5vh;
+    margin: 1vh;
+}
+.policy{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.policy a{
+    margin:1rem;
+    padding:.5vh;
+    z-index:106;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:larger;
+    text-decoration: none;
+
+}
+.policy a div{
+    color:rgb(8, 6, 6);
+}
+.developer{
+    display: flex;
+    justify-content: center;
+}

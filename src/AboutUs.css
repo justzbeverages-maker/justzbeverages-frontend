@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+.about-us-container {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr .75fr;
+}
+
+.about-us {
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 0 4rem; Adds breathing room around the text block */
+}
+
+.about-us-content {
+    z-index: 102;
+    max-width: 90%;
+}
+
+.about-us-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: #4A5D23; /* Deep Olive Green */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.about-us-content p {
+    font-family: 'Inter', sans-serif;
+    color: #4A4A4A; /* Dark charcoal for readability */
+    font-size: 1.1rem;
+    /* line-height: 1.6; */
+    margin-bottom: 1rem;
+}
+
+.about-us-content strong {
+    font-weight: 700;
+    color: #3E2723;
+}
+
+.video-container {
+    height: 100%;
+    width: 100%;
+}
+
+.video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 800px) {
+    .about-us-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .video-container {
+        height: 47dvh;
+    }
+    .about-us {
+        /* Changed from fixed 47dvh to min-height so long text doesn't overflow */
+        min-height: 47dvh; 
+        height: auto;
+        padding: 3rem 1.5rem;
+    }
+    .about-us-content h2 {
+        font-size: 1.8rem;
+    }
+    .about-us-content p {
+        font-size: 1rem;
+    }
+}

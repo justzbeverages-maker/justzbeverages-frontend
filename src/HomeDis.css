@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600;700&display=swap');
+
+.drink-grid {
+    display: grid;
+    grid-template-columns: 1fr .75fr;
+    grid-template-rows: auto;
+}
+
+.drink-images {
+    background-color: #FFE4C4; /* bisque */
+    height: 94vh;
+    position: relative;
+}
+
+.drink-images img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: opacity .8s ease-in-out;
+}
+
+.display-product {
+    opacity: 1;
+}
+
+.no-display-product {
+    opacity: 0;
+}
+
+.drink-discription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFEBCD; /* blanchedalmond */
+    height: 94vh;
+    padding: 0 4rem; 
+    text-align: center;
+}
+
+.description-header {
+    color: #4A5D23; /* Deep Olive Green contrasts beautifully with blanchedalmond */
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; 
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+    z-index: 101;
+}
+
+.description-body {
+    color: #4A4A4A; 
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem; 
+    line-height: 1.6;
+    font-weight: 400;
+    z-index: 101;
+    max-width: 80%; 
+}
+
+@media (max-width: 800px) {
+    .drink-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .drink-images {
+        height: 47vh;
+    }
+    
+    .drink-discription {
+        height: 47vh;
+        padding: 2rem 1.5rem;
+    }
+    
+    .description-header {
+        font-size: clamp(1.5rem, 6vw, 2.2rem);
+        white-space: normal; 
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .description-body {
+        font-size: 1.1rem;
+        max-width: 100%;
+        padding: 0;
+    }
+}

@@ -1,0 +1,40 @@
+.menu-page{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    display:none;
+    z-index:100000;
+}
+.click-area{
+    flex-grow: 2;
+    background-color: rgba(10, 7, 7, 0.442);
+}
+.menu{
+    color:#3d4a2e;
+    flex-grow: .25;
+    background-color: #c9b99a;
+}
+.menu-page.display{
+    display:flex;
+}
+.menu-heading{
+    font-weight: 500;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu a{
+    
+    text-decoration: none;
+}
+.menu a div{
+    color:#122101;
+    height:3vh;
+    font-size: larger;
+    margin: 5px;
+    padding :5px;
+}
+

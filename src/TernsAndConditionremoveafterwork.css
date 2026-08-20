@@ -1,0 +1,9 @@
+.privacy-policy{
+    margin:3vh;
+    padding:3vh;
+    border: 10px black double;
+    border-radius:15px;
+}
+.privacy-policy div{
+    font-size: xx-large;
+}

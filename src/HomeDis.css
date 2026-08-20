@@ -16,6 +16,9 @@
     height: 100%;
     width: 100%;
     position: absolute;
+    top: 0; 
+    left: 0; 
+    object-fit: cover; 
     transition: opacity .8s ease-in-out;
 }
 
@@ -61,6 +64,7 @@
 @media (max-width: 800px) {
     .drink-grid {
         grid-template-columns: 1fr;
+        flex-direction: column-reverse;
     }
     
     .drink-images {

@@ -25,7 +25,7 @@ export function PrivacyPolicy({openMenu}) {
         <p>Our Site uses cookies to enhance your browsing experience, analyse traffic, and personalise content. You can control cookie preferences via your browser settings. Disabling cookies may affect certain Site functionality. We use both session cookies (expire when you close the browser) and persistent cookies (remain for a set period).</p>
         
         <h2>6. Data Retention</h2>
-        <p>We retain personal data for as long as necessary to provide our services and comply with legal obligations. Order data is retained for a minimum of 7 years for tax and accounting purposes. You may request deletion of your account data at any time (subject to legal retention requirements) by emailing privacy@justz.in.</p>
+        <p>We retain personal data for as long as necessary to provide our services and comply with legal obligations. Order data is retained for a minimum of 7 years for tax and accounting purposes. You may request deletion of your account data at any time (subject to legal retention requirements) by emailing justzbeverages@gmail.com.</p>
         
         <h2>7. Your Rights</h2>
         <p>Under applicable Indian data protection law and global best practices, you have the right to: access the personal data we hold about you; request correction of inaccurate data; request deletion of your data (where legally permitted); opt out of marketing communications at any time (via the unsubscribe link in emails); and lodge a complaint with the relevant data protection authority.</p>
@@ -40,7 +40,7 @@ export function PrivacyPolicy({openMenu}) {
         <p>We may update this Privacy Policy from time to time. Material changes will be communicated via a notice on the Site or email. Continued use of the Site after such updates constitutes your acceptance of the revised policy.</p>
         
         <h2>11. Contact for Privacy Queries</h2>
-        <p>For any privacy-related questions, data requests, or complaints, contact our Grievance Officer: Name: [Grievance Officer Name], Email: grievance@justz.in, Address: [Registered Office], New Delhi 110001, India. We aim to respond to all queries within 30 days.</p>
+        <p>For any privacy-related questions, data requests, or complaints, contact our Grievance Officer: Name: [Grievance Officer Name], Email: justzbeverages@gmail.com, Address: [Registered Office], New Delhi 110001, India. We aim to respond to all queries within 30 days.</p>
       </div>
       <Footer />
     </>

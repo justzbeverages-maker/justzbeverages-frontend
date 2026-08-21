@@ -10,7 +10,7 @@ export function TermsAndCondition({openMenu}) {
         <h1>Terms and Conditions</h1>
         
         <h2>1. Acceptance of Terms</h2>
-        <p>By accessing or using <a href="https://www.justz.in">www.justz.in</a> ("the Site") or purchasing any Justz product, you agree to be bound by these Terms and Conditions and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.</p>
+        <p>By accessing or using <a href="https://www.justz.store">www.justz.store</a> ("the Site") or purchasing any Justz product, you agree to be bound by these Terms and Conditions and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.</p>
 
         <h2>2. Eligibility</h2>
         <p>You must be at least 18 years of age to place an order on the Site. By placing an order, you confirm that you are at least 18 years old. Justz Beverages Pvt. Ltd. reserves the right to refuse service to anyone at any time.</p>
@@ -25,7 +25,7 @@ export function TermsAndCondition({openMenu}) {
         <p>We currently ship within India. Estimated delivery timelines are 3–7 business days, subject to location and courier availability. Justz is not responsible for delays caused by courier partners, weather conditions, or circumstances beyond our control. Risk of loss passes to the customer upon dispatch of the order.</p>
 
         <h2>6. Returns and Refunds</h2>
-        <p>Due to the perishable nature of food and beverage products, we do not accept returns unless the product received is damaged, defective, or incorrect. Claims for damaged or incorrect products must be raised within 48 hours of delivery with photographic proof sent to support@justz.in. Approved refunds will be processed to the original payment method within 5–7 business days.</p>
+        <p>Due to the perishable nature of food and beverage products, we do not accept returns unless the product received is damaged, defective, or incorrect. Claims for damaged or incorrect products must be raised within 48 hours of delivery with photographic proof sent to <a href="mailto:justzbeverages@gmail.com">justzbeverages@gmail.com</a>. Approved refunds will be processed to the original payment method within 5–7 business days.</p>
 
         <h2>7. Health Disclaimer</h2>
         <p>Justz products are food and beverage items, not medicines. The information provided on the Site regarding health benefits (prebiotic fiber, gut health) is for informational purposes only and is not intended to diagnose, treat, cure, or prevent any disease. Consult a qualified healthcare professional before making significant dietary changes, especially if you have a medical condition or are pregnant or breastfeeding.</p>
@@ -49,7 +49,7 @@ export function TermsAndCondition({openMenu}) {
         <p>Justz reserves the right to update or modify these Terms at any time. Continued use of the Site after such changes constitutes your acceptance of the revised Terms. We recommend reviewing this page periodically.</p>
 
         <h2>14. Contact for Terms Queries</h2>
-        <p>For any questions regarding these Terms and Conditions, please write to: <a href="mailto:legal@justz.in">legal@justz.in</a></p>
+        <p>For any questions regarding these Terms and Conditions, please write to: <a href="mailto:justzbeverages@gmail.com">justzbeverages@gmail.com</a></p>
       </div>
       <Footer />
     </>

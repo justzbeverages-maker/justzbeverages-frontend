@@ -42,7 +42,7 @@ export function ContactUs({ openMenu }) {
             <ul className="info-list">
               <li>
                 <span className="info-label">Email</span>
-                <a href="mailto:hello@justz.com">hello@justz.com</a>
+                <a href="mailto:hello@justz.com">justzbeverages@gmail.com</a>
               </li>
               <li>
                 <span className="info-label">Phone</span>

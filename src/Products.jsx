@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
+import { getAdminAuthHeader } from "./Auth";
 import "./Products.css";
 
 const API_BASE = "https://justzbeverages.onrender.com";
@@ -11,6 +12,14 @@ const BLANK_FORM = {
   nutrition: "",
   des: "",
 };
+
+// Fires the same "admin-unauthorized" event AdminPanel listens for, so a
+// stale/expired login gets bounced back to the login screen automatically.
+function handleAuthError(err) {
+  if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+    window.dispatchEvent(new Event("admin-unauthorized"));
+  }
+}
 
 export function Products() {
   const [products, setProducts] = useState([]);
@@ -29,6 +38,7 @@ export function Products() {
   const fetchProducts = useCallback(async () => {
     try {
       setStatus("loading");
+      // GET /api/products is public — no auth header needed here.
       const response = await axios.get(`${API_BASE}/api/products`);
       setProducts(response.data);
       setStatus("ready");
@@ -48,12 +58,15 @@ export function Products() {
 
     try {
       setAdding(true);
-      const response = await axios.post(`${API_BASE}/api/products`, newProduct);
+      const response = await axios.post(`${API_BASE}/api/products`, newProduct, {
+        headers: { Authorization: getAdminAuthHeader() },
+      });
       setProducts((list) => [...list, response.data]);
       setNewProduct(BLANK_FORM);
       setShowAddForm(false);
     } catch (err) {
       console.error(err);
+      handleAuthError(err);
       alert("Could not add the product. Please try again.");
     } finally {
       setAdding(false);
@@ -68,9 +81,12 @@ export function Products() {
     setProducts((list) => list.filter((p) => p.id !== id));
 
     try {
-      await axios.delete(`${API_BASE}/api/products/${id}`);
+      await axios.delete(`${API_BASE}/api/products/${id}`, {
+        headers: { Authorization: getAdminAuthHeader() },
+      });
     } catch (err) {
       console.error(err);
+      handleAuthError(err);
       setProducts(prev);
       alert("Could not delete this product. Please try again.");
     } finally {
@@ -93,11 +109,14 @@ export function Products() {
       setSaving(true);
       const target = products.find((p) => p.id === id);
       const updated = { ...target, name: editDraft.name, des: editDraft.des };
-      const response = await axios.put(`${API_BASE}/api/products/${id}`, updated);
+      const response = await axios.put(`${API_BASE}/api/products/${id}`, updated, {
+        headers: { Authorization: getAdminAuthHeader() },
+      });
       setProducts((list) => list.map((p) => (p.id === id ? response.data : p)));
       cancelEdit();
     } catch (err) {
       console.error(err);
+      handleAuthError(err);
       alert("Could not save the changes. Please try again.");
     } finally {
       setSaving(false);

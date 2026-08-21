@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
-import { getAdminAuthHeader } from "./AdminAuth";
+import { getAdminAuthHeader } from "./Auth";
 import "./Enquiries.css";
 
 export function Enquiries() {

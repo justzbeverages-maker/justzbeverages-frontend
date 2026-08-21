@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
+import { getAdminAuthHeader } from "./Auth";
 import "./Hero.css";
 
 const API_BASE = "https://justzbeverages.onrender.com";
@@ -10,6 +11,14 @@ const API_BASE = "https://justzbeverages.onrender.com";
 
 function isVideoUrl(url = "") {
   return /\.(mp4|webm|mov|ogg)(\?.*)?$/i.test(url);
+}
+
+// Fires the same "admin-unauthorized" event AdminPanel listens for, so a
+// stale/expired login gets bounced back to the login screen automatically.
+function handleAuthError(err) {
+  if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+    window.dispatchEvent(new Event("admin-unauthorized"));
+  }
 }
 
 export function Hero() {
@@ -29,6 +38,7 @@ export function Hero() {
   const fetchHeroes = useCallback(async () => {
     try {
       setStatus("loading");
+      // GET /api/hero is public — no auth header needed here.
       const response = await axios.get(`${API_BASE}/api/hero`);
       setHeroes(response.data);
       setStatus("ready");
@@ -48,12 +58,15 @@ export function Hero() {
 
     try {
       setAdding(true);
-      const response = await axios.post(`${API_BASE}/api/hero`, newHero);
+      const response = await axios.post(`${API_BASE}/api/hero`, newHero, {
+        headers: { Authorization: getAdminAuthHeader() },
+      });
       setHeroes((list) => [...list, response.data]);
       setNewHero({ name: "", image: "" });
       setShowAddForm(false);
     } catch (err) {
       console.error(err);
+      handleAuthError(err);
       alert("Could not add the hero entry. Please try again.");
     } finally {
       setAdding(false);
@@ -68,9 +81,12 @@ export function Hero() {
     setHeroes((list) => list.filter((h) => h.id !== id));
 
     try {
-      await axios.delete(`${API_BASE}/api/hero/${id}`);
+      await axios.delete(`${API_BASE}/api/hero/${id}`, {
+        headers: { Authorization: getAdminAuthHeader() },
+      });
     } catch (err) {
       console.error(err);
+      handleAuthError(err);
       setHeroes(prev);
       alert("Could not delete this hero entry. Please try again.");
     } finally {
@@ -92,11 +108,14 @@ export function Hero() {
     try {
       setSaving(true);
       const updated = { id, ...editDraft };
-      const response = await axios.put(`${API_BASE}/api/hero/${id}`, updated);
+      const response = await axios.put(`${API_BASE}/api/hero/${id}`, updated, {
+        headers: { Authorization: getAdminAuthHeader() },
+      });
       setHeroes((list) => list.map((h) => (h.id === id ? response.data : h)));
       cancelEdit();
     } catch (err) {
       console.error(err);
+      handleAuthError(err);
       alert("Could not save the changes. Please try again.");
     } finally {
       setSaving(false);

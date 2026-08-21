@@ -48,6 +48,58 @@
   overflow-x: auto;
 }
 
+.admin-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #faf8f4;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.admin-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 280px;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.admin-login h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.admin-login input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.admin-login button {
+  padding: 0.6rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: #C9B99A;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-login button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.admin-login-error {
+  color: #b3261e;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
 @media (max-width: 700px) {
   .admin {
     flex-direction: column;

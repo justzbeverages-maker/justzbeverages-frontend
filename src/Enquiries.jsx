@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
+import { getAdminAuthHeader } from "./AdminAuth";
 import "./Enquiries.css";
 
 export function Enquiries() {
@@ -7,18 +8,19 @@ export function Enquiries() {
   const [status, setStatus] = useState("loading"); // loading | ready | error
 
   useEffect(() => {
-    // Replace with your real endpoint once submissions are being stored.
-    // fetch("/api/enquiries")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setEnquiries(data);
-    //     setStatus("ready");
-    //   })
-    //   .catch(() => setStatus("error"));
     async function fetchData(){
-      const response=await axios.get("https://justzbeverages.onrender.com/admin");
-      setEnquiries(response.data);
-      setStatus("ready");
+      try {
+        const response = await axios.get("https://justzbeverages.onrender.com/admin", {
+          headers: { Authorization: getAdminAuthHeader() },
+        });
+        setEnquiries(response.data);
+        setStatus("ready");
+      } catch (err) {
+        if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+          window.dispatchEvent(new Event("admin-unauthorized"));
+        }
+        setStatus("error");
+      }
     }
     fetchData();
   }, []);

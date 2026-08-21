@@ -19,10 +19,8 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    top: 0; 
-    left: 0; 
     object-fit: cover; 
-    transition: opacity .8s ease-in-out;
+    transition: opacity .7s;
 }
 
 .display-product {
@@ -102,4 +100,9 @@
         -webkit-line-clamp: 4;
         line-clamp: 4;
     }
+    .drink-images img{
+        transition: opacity;
+        transform:scale(.85)
+    }
+    
 }

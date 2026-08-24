@@ -7,7 +7,7 @@ export function Analytics() {
       <iframe
         className="analytics-frame"
         title="Umami Analytics"
-        src="https://your-umami-instance.com/share/XXXXXXX/your-site"
+        src="https://cloud.umami.is/share/lUntcaNztz120iJk"
       ></iframe>
     </div>
   );

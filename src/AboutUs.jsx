@@ -1,6 +1,27 @@
 import './AboutUs.css'
+import gsap from "gsap";
+import {useGSAP} from "@gsap/react";
 
 export function AboutUs() {
+    useGSAP(()=>{
+        const t2=gsap.timeline({
+            scrollTrigger:{
+                trigger:".about-us-container",
+                start:"top 35%"
+            }
+        });
+        t2.from(".video",{
+            currentTime:0,
+            delay:0.5,
+            opacity:0,
+            ease:"power2.out",
+        },0).from(".about-us-content *",{
+            x:200,
+            duration:1,
+            opacity:0,
+            stagger:.2,
+        },0);
+    },[])
   return (
     <div className="about-us-container">
       <div className="video-container">

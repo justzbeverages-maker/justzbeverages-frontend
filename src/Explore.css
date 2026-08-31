@@ -1,0 +1,75 @@
+.Explore {
+    display: flex;
+    height: 94vh;
+    width: 100vw;
+    background-color:#FFEBCD ;
+    overflow: hidden;
+}
+.explore {
+    display: flex;
+    height: 94vh;
+    width: 100vw;
+    flex-shrink: 0;
+    background-color:#FFEBCD ;
+    color: #111;
+}
+.justz {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:linear-gradient(to right,#FFEBCD,#BEBD91);
+    color:#4A5D23;
+    font-size:100px;
+}
+.product-desc{
+    flex-shrink: 1;
+    padding:15px;
+    margin:5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size:25px;
+}
+.product-desc p{
+    text-align: center;
+}
+.product-data{
+    display: flex;
+    height:90%;
+}
+.product-container h2{
+    text-align: center;
+}
+.product-image{
+    flex-shrink: 2;
+    display: flex;
+    justify-content: end;
+}
+.product-benefits{
+    flex-shrink: 1;
+    padding:15px;
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size:25px;
+}
+.product-benefits p{
+    text-align: center;
+}
+#first{
+    background:linear-gradient(to right,#BEBD91,#F2EAD4);
+}
+#second{
+    background:linear-gradient(to right,#F2EAD4,#835E68);
+}
+#third{
+    background: linear-gradient(to right,#835E68,#D4AEBB);
+}
+@media(max-width: 798px){
+    .desktop{
+        display:none;
+    }
+}

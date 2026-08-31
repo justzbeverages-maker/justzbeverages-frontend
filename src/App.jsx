@@ -8,8 +8,11 @@ import {TermsAndCondition} from './TermsAndCondition'
 import {Legal} from './Legal';
 import {AdminPanel} from './AdminPanel'
 import axios from 'axios'
+import gsap from 'gsap';
+import { ScrollTrigger , SplitText } from "gsap/all";
 import './App.css'
 
+gsap.registerPlugin(ScrollTrigger,SplitText);
 function App() {
   const [data,setData]=useState(null);
   useEffect(()=>{

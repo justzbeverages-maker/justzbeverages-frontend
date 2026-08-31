@@ -5,12 +5,13 @@
     height:6vh;
     width:100%;
     z-index:10000;
+    background-color:#C9B99A;
+
 }
 .logo{
     display:flex;
     justify-content:center;
     align-items: center;
-    background-color:#C9B99A;
     width:8rem;
     height:6vh;
     font-size:2rem;
@@ -19,7 +20,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#C9B99A;
     height:6vh;
     flex-grow: 1;
     font-size: 1rem;
@@ -29,11 +29,13 @@
     display:flex;
     justify-content:center;
     align-items: center;
-    background-color:#C9B99A;
     font-size:1.5rem;
     width:3rem;
     height:6vh;
     cursor: pointer;
+}
+.nav i{
+    font-size:1rem;
 }
 .navlink{
     color:rgba(10, 9, 9, 0.919);

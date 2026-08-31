@@ -1,7 +1,23 @@
 
 import './Menu.css'
 import { NavLink } from 'react-router';
+import {useGSAP} from "@gsap/react";
+import gsap from 'gsap';
+
 export function Menu({ isMenuOpen , closeMenu }){
+    useGSAP(()=>{
+        if(isMenuOpen){
+            const t1=gsap.timeline();
+            t1.from(".menu-page",{
+                x:200,
+                opacity:0,
+                duration:.3,
+            }).from(".menu *",{
+                opacity:0,
+                stagger:.1,
+            })
+        }
+    },[isMenuOpen]);
     return(
         <div className={`menu-page ${isMenuOpen===true? "display" : ""}`}>
             <div className="click-area" onClick={closeMenu}></div>

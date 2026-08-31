@@ -3,6 +3,7 @@
     height:94vh;
     width:100%;
    z-index:110;
+    overflow: hidden;
 }
 .hero-section img{
     width:100%;
@@ -13,4 +14,6 @@
 .hero-section img:hover{
     transform:scale(1.03);
 }
+
+
 

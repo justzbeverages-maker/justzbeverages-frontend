@@ -106,3 +106,8 @@
     }
     
 }
+@media(min-width: 799px){
+    .mobile{
+        display:none;
+    }
+}

@@ -17,6 +17,7 @@
 .about-us-content {
     z-index: 102;
     max-width: 90%;
+    overflow-x: hidden;
 }
 
 .about-us-content h2 {
@@ -43,6 +44,7 @@
 .video-container {
     height: 100%;
     width: 100%;
+    background-color:#FFEBCD;
 }
 
 .video {

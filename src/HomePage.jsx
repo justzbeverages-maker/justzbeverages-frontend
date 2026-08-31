@@ -6,6 +6,8 @@ import {ProductDisplay} from "./ProductDisplay"
 import OrangeJuiceCan from "./OrangeJuiceCan"
 import {AboutUs} from './AboutUs'
 import Paddle from "./Paddle"
+import {Explore} from "./Explore.jsx";
+
 export function HomePage({ openMenu , data }){
     const hero=data? data.hero:[];
     if(!hero.length){
@@ -24,6 +26,7 @@ export function HomePage({ openMenu , data }){
             {/* <OrangeJuiceCan/> */}
         </div>
         <HomeDis data={data}/>
+        <Explore />
         <AboutUs/>
         <ProductDisplay data={data} />
         <FooterHomePage/>

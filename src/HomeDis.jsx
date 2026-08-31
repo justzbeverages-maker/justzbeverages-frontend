@@ -28,7 +28,7 @@ export function HomeDis({ data }) {
     }
 
     return (
-        <div className="drink-grid">
+        <div className="drink-grid mobile">
             <div className="drink-discription">
                 <h2 className="description-header">{products[currentIndex].name}</h2>
                 <p className="description-body">{products[currentIndex].des}</p>

@@ -23,7 +23,7 @@ export function AboutUs() {
         },0);
     },[])
   return (
-    <div className="about-us-container">
+    <div className="about-us-container" id="about-us">
       <div className="video-container">
         <video 
           className="video"
@@ -32,7 +32,7 @@ export function AboutUs() {
           loop
           playsInline
         >
-          <source src="/videos/produxcts01.mp4" type="video/mp4"/>
+          <source src="/videos/examplevideo.mp4" type="video/mp4"/>
         </video>
       </div>
       

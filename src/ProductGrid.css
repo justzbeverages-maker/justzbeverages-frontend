@@ -16,7 +16,7 @@
     position: relative;
     margin:10px;
     height:80%;
-    background-color:rgba(239, 236, 236, 0.849);
+    background-color:#100F0E;
     border-radius:10px;
     perspective: 1000px;
     transition: transform 1s ease;

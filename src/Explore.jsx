@@ -80,7 +80,7 @@ export function Explore() {
     }, { scope: containerRef })
 
     return (
-        <div className="Explore desktop" ref={containerRef}>
+        <div className="Explore desktop" id="Explore" ref={containerRef}>
             <div className="justz explore">Explore<br/>Justz</div>
 
             <div className="explore product" id="first">
@@ -93,7 +93,7 @@ export function Explore() {
                                 Crisp Apple Extract • Prebiotic Fiber • Natural Flavors • Stevia</p>
                         </div>
                         <div className="product-image">
-                            <img src="/crisp_apple_front_without_background.png"/>
+                            <img src="/testingapple.png"/>
                         </div>
                         <div className="product-benefits">
                             <h4>Health Benefit</h4>
@@ -115,7 +115,7 @@ export function Explore() {
                                 Watermelon Extract • Lime Oil • Prebiotic Fiber • Natural Flavors • Stevia</p>
                         </div>
                         <div className="product-image">
-                            <img src="/watermelon_lime_front_removebg.png"/>
+                            <img src="/testinglime.png"/>
                         </div>
                         <div className="product-benefits">
                             <h4>Health Benefit</h4>
@@ -137,7 +137,7 @@ export function Explore() {
                                 Classic Ilon Extract • Lime Oil • Prebiotic Fiber • Natural Flavors • Stevia.</p>
                         </div>
                         <div className="product-image">
-                            <img src="/classic_ilon_front_removebg.png"/>
+                            <img src="/testinggrape.png"/>
                         </div>
                         <div className="product-benefits">
                             <h4>Health Benefit</h4>

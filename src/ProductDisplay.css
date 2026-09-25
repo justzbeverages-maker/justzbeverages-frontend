@@ -3,11 +3,11 @@
     display: flex;
     justify-content: center;
     min-height:55vh;
-    background-color:blanchedalmond;
-}
+        background:linear-gradient(to right,  #0B0A08, #161311 57% , #0B0A08);
+    }
 .nutrition{
-    background-color:blanchedalmond;
-    color:rgb(19, 18, 18);
+        background:linear-gradient(to right,  #0B0A08 , #161311 57%, #0B0A08);
+    color:#8D5E2D;
     display: flex;
     justify-content: center;
     padding:3px;

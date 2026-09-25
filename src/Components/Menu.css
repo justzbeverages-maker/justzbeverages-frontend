@@ -12,11 +12,13 @@
     background-color: rgba(10, 7, 7, 0.442);
 }
 .menu{
-    color:#3d4a2e;
+    color:#F0CC9D;
     flex-grow: .25;
-    background-color: #c9b99a;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
 }
 .menu-page.display{
+
     display:flex;
 }
 .menu-heading{
@@ -27,14 +29,26 @@
     justify-content: center;
 }
 .menu a{
-    
+
     text-decoration: none;
 }
 .menu a div{
     color:#122101;
     height:3vh;
-    font-size: larger;
     margin: 5px;
     padding :5px;
+}
+.menu a div{
+    gap:.5rem;
+    color:#F0CC9D;
+    display: flex;
+    justify-content: center;
+}
+.testing{
+    font-size:1.35rem;
+}
+.menu-link{
+    font-size:1.55rem;
+
 }
 

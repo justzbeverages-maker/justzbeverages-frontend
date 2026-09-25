@@ -101,7 +101,7 @@
         line-clamp: 4;
     }
     .drink-images img{
-        transition: opacity;
+        transition: opacity ease-in-out;
         transform:scale(.85)
     }
     

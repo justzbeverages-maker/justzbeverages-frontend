@@ -7,7 +7,7 @@
 }
 
 .about-us {
-    background-color: blanchedalmond;
+        background:linear-gradient(to right,  #161311 , #0B0A08);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@
 
 .about-us-content h2 {
     font-family: 'Playfair Display', serif;
-    color: #4A5D23; /* Deep Olive Green */
+    color: #F0CC9D; /* Deep Olive Green */
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -30,7 +30,7 @@
 
 .about-us-content p {
     font-family: 'Inter', sans-serif;
-    color: #4A4A4A; /* Dark charcoal for readability */
+    color: #787777; /* Dark charcoal for readability */
     font-size: 1.1rem;
     /* line-height: 1.6; */
     margin-bottom: 1rem;
@@ -44,7 +44,7 @@
 .video-container {
     height: 100%;
     width: 100%;
-    background-color:#FFEBCD;
+    background:linear-gradient(to right, #1d1916, #161311);
 }
 
 .video {

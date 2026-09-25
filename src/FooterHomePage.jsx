@@ -3,7 +3,7 @@ import './FooterHomePage.css'
 
 export function FooterHomePage() {
   return (
-    <footer className="footer-home-page">
+    <footer className="footer-home-page" id="Contact-us">
       <div className="social-media">
         <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
           <img className="otherFooter" src="/facebook.png" alt="Facebook" />

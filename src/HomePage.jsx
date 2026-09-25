@@ -24,7 +24,7 @@ export function HomePage({ openMenu , data }){
     const hero=data? data.hero:[];
     if(!hero.length){
         return(
-            <div>Loading...</div>
+            <div className="loading"><img src="/LOADINGPAGE.png"/></div>
         );
     }
     return(

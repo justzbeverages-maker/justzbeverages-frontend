@@ -18,6 +18,15 @@ html {
     transform:scale(1.03);
 
 }
+.loading{
+    height:100vh;
+    width:100vw;
+}
+.loading img{
+    height:100%;
+    width:100%;
+background-size: cover;
+}
 
 
 

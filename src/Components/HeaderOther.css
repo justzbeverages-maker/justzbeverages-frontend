@@ -1,4 +1,7 @@
 
 .color{
-    background-color: white;
+    background-color: transparent;
+    backdrop-filter: blur(12px);
+    color:black;
+    height:8vh;
 }

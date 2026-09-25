@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Header } from "./Components/Header";
+import { HeaderOther } from "./Components/HeaderOther";
 import { Footer } from "./Footer";
 import axios from 'axios'
 import "./ContactUs.css";
@@ -23,7 +23,7 @@ export function ContactUs({ openMenu }) {
 
   return (
     <>
-      <Header openMenu={openMenu} />
+      <HeaderOther openMenu={openMenu} />
 
       <main className="contact-page">
         <section className="contact-hero">

@@ -64,3 +64,6 @@
         gap: 0;
     }
 }
+.otherFooterHome{
+    filter: brightness(0) invert(1);
+}

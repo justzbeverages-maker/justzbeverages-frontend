@@ -3,7 +3,7 @@ import './ProductDisplay.css'
 export function ProductDisplay({data}){
     return(<div id="products">
             <div className="nutrition">Click The Drink To Reveal Its Truth</div>
-            <div className="display-product">
+            <div className="display-product-scroll">
             <ProductGrid data={data}/>
         </div>
             </div>

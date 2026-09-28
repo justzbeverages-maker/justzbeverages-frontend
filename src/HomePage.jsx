@@ -9,6 +9,7 @@ import Paddle from "./Paddle"
 import {Explore} from "./Explore.jsx";
 import {useGSAP} from "@gsap/react";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {useState} from "react";
 
 export function HomePage({ openMenu , data }){
     useGSAP(()=>{

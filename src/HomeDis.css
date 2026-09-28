@@ -1,110 +1,131 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600;700&display=swap');
 
-.drink-grid {
-    display: grid;
-    grid-template-columns: 1fr .75fr;
-    grid-template-rows: 94vh;
-    height: 94vh;
-    overflow: hidden;
-}
+/*.drink-grid {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*    grid-template-rows: 10vh;*/
+/*    height: 94vh;*/
+/*    overflow: hidden;*/
+/*}*/
 
-.drink-images {
-    background-color: #FFE4C4; /* bisque */
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
+/*.drink-images {*/
+/*    background-color: #FFE4C4; !* bisque *!*/
+/*    height: 100%;*/
+/*    width:100%;*/
+/*    position: relative;*/
+/*    overflow: hidden;*/
+/*}*/
 
-.drink-images img {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    object-fit: cover; 
-    transition: opacity .7s;
-}
+/*.drink-images img {*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    position: absolute;*/
+/*    object-fit: contain;*/
+/*}*/
 
-.display-product {
-    opacity: 1;
-}
+/*.display-product {*/
+/*    display: block;*/
+/*}*/
 
-.no-display-product {
-    opacity: 0;
-}
+/*.no-display-product {*/
+/*    display: none;*/
+/*}*/
 
-.drink-discription {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFEBCD; /* blanchedalmond */
-    height: 100%;
-    padding: 0 4rem; 
-    text-align: center;
-    box-sizing: border-box;
-    overflow: hidden;
-}
+/*.drink-discription {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    background-color: #FFEBCD; !* blanchedalmond *!*/
+/*    height: 100%;*/
+/*    padding: 0 4rem; */
+/*    text-align: center;*/
+/*    box-sizing: border-box;*/
+/*    overflow: hidden;*/
+/*}*/
 
-.description-header {
-    color: #4A5D23; /* Deep Olive Green contrasts beautifully with blanchedalmond */
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem; 
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 1rem;
-    z-index: 101;
-}
+/*.description-header {*/
+/*    color: #4A5D23; !* Deep Olive Green contrasts beautifully with blanchedalmond *!*/
+/*    font-family: 'Playfair Display', serif;*/
+/*    font-size: 3rem; */
+/*    font-weight: 700;*/
+/*    letter-spacing: 1.5px;*/
+/*    margin-bottom: 1rem;*/
+/*    z-index: 101;*/
+/*}*/
 
-.description-body {
-    color: #4A4A4A; 
-    font-family: 'Inter', sans-serif;
-    font-size: 1.25rem; 
-    line-height: 1.6;
-    font-weight: 400;
-    z-index: 101;
-    max-width: 80%;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
+/*.description-body {*/
+/*    color: #4A4A4A; */
+/*    font-family: 'Inter', sans-serif;*/
+/*    font-size: 1.25rem; */
+/*    line-height: 1.6;*/
+/*    font-weight: 400;*/
+/*    z-index: 101;*/
+/*    max-width: 80%;*/
+/*    display: -webkit-box;*/
+/*    -webkit-line-clamp: 5;*/
+/*    line-clamp: 5;*/
+/*    -webkit-box-orient: vertical;*/
+/*    overflow: hidden;*/
+/*}*/
 
 @media (max-width: 800px) {
     .drink-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: 47vh 47vh;
-        height: 94vh;
+        background:linear-gradient(to right,  #161311 , #0B0A08);
+        height:100vh;
+        display: flex;
+        flex-direction: column;
     }
 
     .drink-images {
-        height: 47vh;
+        height: 55%;
+        width: 100%;
+        position: relative;
         order: -1;
+    }
+    .drink-images img{
+        position: absolute;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        transition: opacity linear .7s;
+    }
+    .display-product {
+        opacity: 1;
+    }
+    .no-display-product {
+        opacity: 0;
     }
 
     .drink-discription {
-        height: 47vh;
-        padding: 2rem 1.5rem;
+        color:white;
+        height: 35%;
+        display: flex;
+        padding:1rem;
+        /*justify-content: center;*/
+        align-items: center;
+        flex-direction: column;
     }
     
     .description-header {
-        font-size: clamp(1.5rem, 6vw, 2.2rem);
-        white-space: normal; 
-        width: 100%;
-        margin-bottom: 0.5rem;
+        color:#F8D09D;
+        font-size: 2rem;
+        text-wrap: nowrap;
+        margin:1rem 0 2rem 0;
     }
     
     .description-body {
-        font-size: 1.1rem;
-        max-width: 100%;
-        padding: 0;
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
+        font-size: 1.25rem;
+        padding:.5rem;
+        text-align: center;
     }
-    .drink-images img{
-        transition: opacity ease-in-out;
-        transform:scale(.85)
+    .product-info{
+        color:#F8D09D;
+        font-size:1rem;
+        padding:.5rem;
+        text-align: center;
+        order:-1;
     }
-    
 }
 @media(min-width: 799px){
     .mobile{

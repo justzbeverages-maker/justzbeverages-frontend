@@ -13,6 +13,7 @@ html {
     height:100%;
      transition:transform 1s ease-out;
     object-fit: cover;
+    object-position: bottom;
 }
 .hero-section img:hover{
     transform:scale(1.03);

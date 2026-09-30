@@ -102,6 +102,7 @@
         height: 45%;
         display: flex;
         padding:1rem;
+        margin:1px;
         /*justify-content: center;*/
         align-items: center;
         flex-direction: column;
@@ -111,13 +112,14 @@
         color:#F8D09D;
         font-size: 2rem;
         text-wrap: nowrap;
-        margin:1rem 0 2rem 0;
+        margin:1rem 0 1rem 0;
     }
     
     .description-body {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
         padding:.5rem;
         text-align: center;
+        margin:1px;
     }
     .product-info{
         color:#F8D09D;
@@ -130,5 +132,10 @@
 @media(min-width: 799px){
     .mobile{
         display:none;
+    }
+}
+@media(max-width: 392px){
+    .drink-grid{
+        height:100dvh;
     }
 }

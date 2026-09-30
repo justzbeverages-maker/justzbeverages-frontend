@@ -72,7 +72,7 @@
 @media (max-width: 800px) {
     .drink-grid {
         background:linear-gradient(to right,  #161311 , #0B0A08);
-        height:84dvh;
+        height:84vh;
         display: flex;
         flex-direction: column;
     }
@@ -136,6 +136,6 @@
 }
 @media(max-width: 392px){
     .drink-grid{
-        height:100dvh;
+        height:100vh;
     }
 }

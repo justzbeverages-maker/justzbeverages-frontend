@@ -12,3 +12,9 @@
     justify-content: center;
     padding:3px;
 }
+
+@media(max-width:800px){
+    .display-product-scroll{
+        height:auto;
+    }
+}

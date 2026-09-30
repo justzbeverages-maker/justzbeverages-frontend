@@ -71,15 +71,15 @@
 
     .nav-cen{
         text-wrap: nowrap;
-        padding: 1rem .6rem 1rem .6rem;
-        gap: .8rem;
+        padding: 1rem .5rem 1rem .5rem;
+        gap: .5rem;
         height: 5vh;
         font-size: 0.8rem;
     }
 
     .nav{
         align-items: normal;
-        padding: .8rem .5rem 1rem .5rem;
+        padding: .8rem 0.5rem 1rem 0;
         font-size: 1.2rem;
         width: 2.5rem;
         height: 5vh;

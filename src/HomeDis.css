@@ -72,7 +72,7 @@
 @media (max-width: 800px) {
     .drink-grid {
         background:linear-gradient(to right,  #161311 , #0B0A08);
-        height:100vh;
+        height:83dvh;
         display: flex;
         flex-direction: column;
     }
@@ -85,7 +85,7 @@
     }
     .drink-images img{
         position: absolute;
-        object-fit: cover;
+        object-fit: fill;
         height: 100%;
         width: 100%;
         transition: opacity linear .7s;

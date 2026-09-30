@@ -28,6 +28,10 @@ html {
     width:100%;
 background-size: cover;
 }
-
+@media(max-width: 800px){
+    .hero-section img{
+        object-fit: fill;
+    }
+}
 
 

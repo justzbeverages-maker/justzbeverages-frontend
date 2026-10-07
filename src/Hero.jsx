@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { getAdminAuthHeader } from "./Auth";
 import "./Hero.css";
@@ -35,22 +35,25 @@ export function Hero() {
 
   const [deletingId, setDeletingId] = useState(null);
 
-  const fetchHeroes = useCallback(async () => {
-    try {
-      setStatus("loading");
-      // GET /api/hero is public — no auth header needed here.
-      const response = await axios.get(`${API_BASE}/api/hero`);
-      setHeroes(response.data);
-      setStatus("ready");
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-  }, []);
-
   useEffect(() => {
-    fetchHeroes();
-  }, [fetchHeroes]);
+    let cancelled = false;
+    async function load() {
+      try {
+        // GET /api/hero is public — no auth header needed here.
+        const response = await axios.get(`${API_BASE}/api/hero`);
+        if (cancelled) return;
+        setHeroes(response.data);
+        setStatus("ready");
+      } catch (err) {
+        console.error(err);
+        if (!cancelled) setStatus("error");
+      }
+    }
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   async function handleAdd(e) {
     e.preventDefault();

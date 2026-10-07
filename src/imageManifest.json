@@ -1,0 +1,268 @@
+{
+  "LOADINGPAGE": {
+    "ext": "png",
+    "w": 1672,
+    "h": 941,
+    "webp": true,
+    "avif": true
+  },
+  "classic_ilon_back": {
+    "ext": "png",
+    "w": 660,
+    "h": 723,
+    "webp": true,
+    "avif": true
+  },
+  "classic_ilon_front": {
+    "ext": "png",
+    "w": 633,
+    "h": 651,
+    "webp": true,
+    "avif": true
+  },
+  "classic_ilon_front_removebg": {
+    "ext": "png",
+    "w": 493,
+    "h": 507,
+    "webp": true,
+    "avif": true
+  },
+  "contactPage": {
+    "ext": "png",
+    "w": 1536,
+    "h": 1024,
+    "webp": true,
+    "avif": true
+  },
+  "crisp_apple_back": {
+    "ext": "png",
+    "w": 670,
+    "h": 723,
+    "webp": true,
+    "avif": true
+  },
+  "crisp_apple_front": {
+    "ext": "png",
+    "w": 616,
+    "h": 650,
+    "webp": true,
+    "avif": true
+  },
+  "crisp_apple_front_without_background": {
+    "ext": "png",
+    "w": 486,
+    "h": 513,
+    "webp": true,
+    "avif": true
+  },
+  "example": {
+    "ext": "png",
+    "w": 1364,
+    "h": 1153,
+    "webp": true,
+    "avif": true
+  },
+  "example2": {
+    "ext": "png",
+    "w": 1672,
+    "h": 941,
+    "webp": true,
+    "avif": true
+  },
+  "example3": {
+    "ext": "png",
+    "w": 1363,
+    "h": 1154,
+    "webp": true,
+    "avif": true
+  },
+  "example4": {
+    "ext": "png",
+    "w": 1363,
+    "h": 1154,
+    "webp": true,
+    "avif": true
+  },
+  "facebook": {
+    "ext": "png",
+    "w": 512,
+    "h": 512,
+    "webp": true,
+    "avif": true
+  },
+  "hero": {
+    "ext": "png",
+    "w": 2816,
+    "h": 1536,
+    "webp": true,
+    "avif": true
+  },
+  "hero01": {
+    "ext": "png",
+    "w": 1872,
+    "h": 560,
+    "webp": true,
+    "avif": true
+  },
+  "hero02": {
+    "ext": "png",
+    "w": 1941,
+    "h": 810,
+    "webp": true,
+    "avif": true
+  },
+  "instagram-circle": {
+    "ext": "png",
+    "w": 512,
+    "h": 512,
+    "webp": true,
+    "avif": true
+  },
+  "justz-fevicon-final": {
+    "ext": "png",
+    "w": 95,
+    "h": 173,
+    "webp": true,
+    "avif": false
+  },
+  "justz-fevicon": {
+    "ext": "png",
+    "w": 621,
+    "h": 233,
+    "webp": true,
+    "avif": false
+  },
+  "linkedin": {
+    "ext": "png",
+    "w": 512,
+    "h": 512,
+    "webp": true,
+    "avif": false
+  },
+  "mobileHero": {
+    "ext": "png",
+    "w": 1536,
+    "h": 2752,
+    "webp": true,
+    "avif": true
+  },
+  "mobileHero01": {
+    "ext": "png",
+    "w": 940,
+    "h": 1548,
+    "webp": true,
+    "avif": true
+  },
+  "nutrition": {
+    "ext": "png",
+    "w": 1254,
+    "h": 1254,
+    "webp": true,
+    "avif": true
+  },
+  "og-image": {
+    "ext": "jpg",
+    "w": 1200,
+    "h": 630,
+    "webp": false,
+    "avif": false
+  },
+  "product01": {
+    "ext": "png",
+    "w": 526,
+    "h": 474,
+    "webp": true,
+    "avif": false
+  },
+  "product02": {
+    "ext": "png",
+    "w": 525,
+    "h": 465,
+    "webp": true,
+    "avif": false
+  },
+  "product03": {
+    "ext": "png",
+    "w": 525,
+    "h": 467,
+    "webp": true,
+    "avif": false
+  },
+  "product1": {
+    "ext": "png",
+    "w": 535,
+    "h": 535,
+    "webp": true,
+    "avif": true
+  },
+  "product2": {
+    "ext": "png",
+    "w": 535,
+    "h": 535,
+    "webp": true,
+    "avif": true
+  },
+  "testingAppleHero": {
+    "ext": "png",
+    "w": 1363,
+    "h": 1154,
+    "webp": true,
+    "avif": true
+  },
+  "testingGrapeHero": {
+    "ext": "png",
+    "w": 1363,
+    "h": 1154,
+    "webp": true,
+    "avif": true
+  },
+  "testingLimeHero": {
+    "ext": "png",
+    "w": 1364,
+    "h": 1153,
+    "webp": true,
+    "avif": true
+  },
+  "testingapple": {
+    "ext": "png",
+    "w": 1363,
+    "h": 1154,
+    "webp": true,
+    "avif": false
+  },
+  "testinggrape": {
+    "ext": "png",
+    "w": 1363,
+    "h": 1154,
+    "webp": true,
+    "avif": false
+  },
+  "testinglime": {
+    "ext": "png",
+    "w": 1364,
+    "h": 1153,
+    "webp": true,
+    "avif": false
+  },
+  "watermelon_lime_back": {
+    "ext": "png",
+    "w": 681,
+    "h": 721,
+    "webp": true,
+    "avif": true
+  },
+  "watermelon_lime_front": {
+    "ext": "png",
+    "w": 603,
+    "h": 652,
+    "webp": true,
+    "avif": true
+  },
+  "watermelon_lime_front_removebg": {
+    "ext": "png",
+    "w": 480,
+    "h": 519,
+    "webp": true,
+    "avif": true
+  }
+}

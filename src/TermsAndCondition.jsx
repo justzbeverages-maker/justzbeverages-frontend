@@ -1,3 +1,4 @@
+import { RouteSeo } from "./Seo";
 import './Legal.css';
 import {HeaderOther} from './Components/HeaderOther';
 import {Footer} from './Footer';
@@ -5,6 +6,7 @@ import {Footer} from './Footer';
 export function TermsAndCondition({openMenu}) {
   return (
     <>
+      <RouteSeo path="/termsandcondition" />
       <HeaderOther openMenu={openMenu} />
       <div className="legal-container">
         <h1>Terms and Conditions</h1>

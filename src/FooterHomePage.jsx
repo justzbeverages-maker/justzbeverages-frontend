@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router'; /* Typically imported from react-router-dom */
+import { Picture } from './Picture'
 import './FooterHomePage.css'
 
 export function FooterHomePage() {
@@ -6,13 +7,13 @@ export function FooterHomePage() {
     <footer className="footer-home-page" id="Contact-us">
       <div className="social-media">
         <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-          <img className="otherFooterHome" src="/facebook.png" alt="Facebook" />
+          <Picture className="otherFooterHome" src="/facebook.png" alt="Facebook" loading="lazy" decoding="async" />
         </a>
         <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-          <img className="otherFooterHome" src="/instagram-circle.png" alt="Instagram" />
+          <Picture className="otherFooterHome" src="/instagram-circle.png" alt="Instagram" loading="lazy" decoding="async" />
         </a>
         <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-          <img className="otherFooterHome" src="/linkedin.png" alt="LinkedIn" />
+          <Picture className="otherFooterHome" src="/linkedin.png" alt="LinkedIn" loading="lazy" decoding="async" />
         </a>
       </div>
       

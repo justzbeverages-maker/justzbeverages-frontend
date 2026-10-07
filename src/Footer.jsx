@@ -1,17 +1,18 @@
 import { NavLink } from 'react-router';
+import { Picture } from './Picture'
 import './Footer.css'
 export function Footer(){
 return(
     <footer className="footer">
       <div className="social-media">
         <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-          <img className="otherFooter" src="/facebook.png" alt="Facebook" />
+          <Picture className="otherFooter" src="/facebook.png" alt="Facebook" loading="lazy" decoding="async" />
         </a>
         <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-          <img className="otherFooter" src="/instagram-circle.png" alt="Instagram" />
+          <Picture className="otherFooter" src="/instagram-circle.png" alt="Instagram" loading="lazy" decoding="async" />
         </a>
         <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-          <img className="otherFooter" src="/linkedin.png" alt="LinkedIn" />
+          <Picture className="otherFooter" src="/linkedin.png" alt="LinkedIn" loading="lazy" decoding="async" />
         </a>
       </div>
       

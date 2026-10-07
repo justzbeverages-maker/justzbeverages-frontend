@@ -1,4 +1,3 @@
-
 import './Menu.css'
 import { NavLink } from 'react-router';
 import {useGSAP} from "@gsap/react";
@@ -22,8 +21,8 @@ export function Menu({ isMenuOpen , closeMenu }){
     },[isMenuOpen]);
     return(
         <div className={`menu-page ${isMenuOpen===true? "display" : ""}`}>
-            <div className="click-area" onClick={closeMenu}></div>
-            <div className="menu">
+            <div className="click-area" onClick={closeMenu} aria-hidden="true"></div>
+            <div className="menu" role="navigation" aria-label="Site menu">
                 {/*<NavLink to="/"><div className="menu-heading" onClick={closeMenu}>JUSTZ</div></NavLink>*/}
                 <NavLink to="/" onClick={closeMenu}><div className="testing">Home</div></NavLink>
                 <NavLink to="/legal" onClick={closeMenu}><div className="menu-link">Legal</div></NavLink>

@@ -1,5 +1,6 @@
 import "./HomeDis.css";
 import { useEffect, useState } from "react";
+import { Picture } from "./Picture";
 
 export function HomeDis({ data }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,7 +20,7 @@ export function HomeDis({ data }) {
                 }
             });
         }, 2000);
-        
+
         return () => clearTimeout(timer);
     }, [currentIndex, isHover, products.length]);
 
@@ -35,17 +36,19 @@ export function HomeDis({ data }) {
                 <h2 className="description-header">{products[currentIndex].name}</h2>
                 <p className="description-body">{products[currentIndex].des}</p>
             </div>
-            
+
             <div className="drink-images">
                 {products.map((drink, index) => {
                     return (
-                        <img 
-                            key={drink.id} 
+                        <Picture
+                            key={drink.id}
                             onMouseEnter={() => setIsHover(true)}
-                            onMouseLeave={() => setIsHover(false)} 
+                            onMouseLeave={() => setIsHover(false)}
                             className={currentIndex === index ? "display-product" : "no-display-product"}
                             src={drink.front_image}
-                            alt={`${drink.name} packaging`} 
+                            alt={`${drink.name} packaging by JustZ`}
+                            loading="lazy"
+                            decoding="async"
                         />
                     );
                 })}

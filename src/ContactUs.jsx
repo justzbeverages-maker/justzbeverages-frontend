@@ -1,3 +1,4 @@
+import { RouteSeo } from "./Seo";
 import { useState } from "react";
 import { HeaderOther } from "./Components/HeaderOther";
 import { Footer } from "./Footer";
@@ -23,6 +24,7 @@ export function ContactUs({ openMenu }) {
 
   return (
     <>
+      <RouteSeo path="/contact-us" />
       <HeaderOther openMenu={openMenu} />
 
       <main className="contact-page">

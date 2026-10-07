@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { getAdminAuthHeader } from "./Auth";
 import "./Products.css";
@@ -35,22 +35,25 @@ export function Products() {
 
   const [deletingId, setDeletingId] = useState(null);
 
-  const fetchProducts = useCallback(async () => {
-    try {
-      setStatus("loading");
-      // GET /api/products is public — no auth header needed here.
-      const response = await axios.get(`${API_BASE}/api/products`);
-      setProducts(response.data);
-      setStatus("ready");
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-  }, []);
-
   useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+    let cancelled = false;
+    async function load() {
+      try {
+        // GET /api/products is public — no auth header needed here.
+        const response = await axios.get(`${API_BASE}/api/products`);
+        if (cancelled) return;
+        setProducts(response.data);
+        setStatus("ready");
+      } catch (err) {
+        console.error(err);
+        if (!cancelled) setStatus("error");
+      }
+    }
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   async function handleAddProduct(e) {
     e.preventDefault();

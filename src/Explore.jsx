@@ -2,6 +2,7 @@ import './Explore.css'
 import { useRef } from 'react'
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import { Picture } from "./Picture"
 
 export function Explore() {
     const containerRef = useRef(null)
@@ -93,7 +94,7 @@ export function Explore() {
                                 Crisp Apple Extract • Prebiotic Fiber • Natural Flavors • Stevia</p>
                         </div>
                         <div className="product-image">
-                            <img src="/testingapple.png"/>
+                            <Picture src="/testingapple.png" alt="Crisp Apple sparkling beverage can" loading="lazy" decoding="async"/>
                         </div>
                         <div className="product-benefits">
                             <h4>Health Benefit</h4>
@@ -115,7 +116,7 @@ export function Explore() {
                                 Watermelon Extract • Lime Oil • Prebiotic Fiber • Natural Flavors • Stevia</p>
                         </div>
                         <div className="product-image">
-                            <img src="/testinglime.png"/>
+                            <Picture src="/testinglime.png" alt="Watermelon Lime sparkling beverage can" loading="lazy" decoding="async"/>
                         </div>
                         <div className="product-benefits">
                             <h4>Health Benefit</h4>
@@ -137,7 +138,7 @@ export function Explore() {
                                 Classic Ilon Extract • Lime Oil • Prebiotic Fiber • Natural Flavors • Stevia.</p>
                         </div>
                         <div className="product-image">
-                            <img src="/testinggrape.png"/>
+                            <Picture src="/testinggrape.png" alt="Classic Ilon sparkling beverage can" loading="lazy" decoding="async"/>
                         </div>
                         <div className="product-benefits">
                             <h4>Health Benefit</h4>

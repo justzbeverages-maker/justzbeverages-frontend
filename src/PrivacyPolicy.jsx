@@ -1,3 +1,4 @@
+import { RouteSeo } from "./Seo";
 import './Legal.css';
 import {HeaderOther} from './Components/HeaderOther';
 import {Footer} from './Footer';
@@ -5,6 +6,7 @@ import {Footer} from './Footer';
 export function PrivacyPolicy({openMenu}) {
   return (
     <>
+      <RouteSeo path="/privacy-policy" />
       <HeaderOther openMenu={openMenu} />
       <div className="legal-container">
         <h1>Privacy Policy</h1>

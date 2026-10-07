@@ -1,21 +1,37 @@
 import './ProductGrid.css'
 import {useState, useEffect, useRef} from "react"
+import {Picture} from "./Picture"
 
 const MOBILE_QUERY = "(max-width: 800px)";
 const SWIPE_THRESHOLD = 50;
 
-function ProductCard({product}){
+// `focusable` is false on the mobile carousel: focusing an off-screen slide inside an
+// overflow:hidden track would make the browser scroll the track and break the translateX state.
+function ProductCard({product, focusable}){
     const[click,setClick]=useState(false);
+    const toggle=()=>{
+        if(click==1)
+            setClick(0);
+        else
+            setClick(1);
+    };
     return(<>
-<div className={`element ${click===1 ? "elementOnClick" : "" }`} onClick={()=>{
-                        if(click==1)
-                            setClick(0);
-                        else
-                            setClick(1);
-                     }}><img className={`front ${click===1 ? "frontOnClick" : ""}`} src={product.front_image}></img>
-            <img className={`back ${click===1 ? "backOnClick" : ""}`} src={product.nutrition}></img>
+            <div className={`element ${click===1 ? "elementOnClick" : "" }`}
+                 onClick={toggle}
+                 role="button"
+                 tabIndex={focusable ? 0 : undefined}
+                 aria-pressed={click===1}
+                 aria-label={`${product.name} – ${click===1 ? "show product front" : "show nutrition information"}`}
+                 onKeyDown={(e)=>{
+                     if(e.key==="Enter" || e.key===" "){
+                         e.preventDefault();
+                         toggle();
+                     }
+                 }}
+            ><Picture className={`front ${click===1 ? "frontOnClick" : ""}`} src={product.front_image} alt={`${product.name} by JustZ`} loading="lazy" decoding="async"/>
+                <Picture className={`back ${click===1 ? "backOnClick" : ""}`} src={product.nutrition} alt={`${product.name} nutrition information label`} loading="lazy" decoding="async"/>
             </div>
-            </>
+        </>
     );
 }
 export function ProductGrid({data}){
@@ -75,16 +91,16 @@ export function ProductGrid({data}){
 
     return(
         <div className="product-grid" id="product-grid"
-            onTouchStart={isMobile ? handleTouchStart : undefined}
-            onTouchMove={isMobile ? handleTouchMove : undefined}
-            onTouchEnd={isMobile ? handleTouchEnd : undefined}
+             onTouchStart={isMobile ? handleTouchStart : undefined}
+             onTouchMove={isMobile ? handleTouchMove : undefined}
+             onTouchEnd={isMobile ? handleTouchEnd : undefined}
         >
             <div className="product-track"
-                style={isMobile ? {transform:`translateX(-${safeIndex*100}%)`} : undefined}
+                 style={isMobile ? {transform:`translateX(-${safeIndex*100}%)`} : undefined}
             >
                 {products.map((product)=>{
                     return(
-                        <ProductCard product={product} key={product.id}/>
+                        <ProductCard product={product} key={product.id} focusable={!isMobile}/>
                     );
                 })}
             </div>
@@ -92,8 +108,8 @@ export function ProductGrid({data}){
                 <div className="product-dots">
                     {products.map((product,index)=>(
                         <span key={product.id}
-                            className={`dot ${index===safeIndex ? "dot-active" : ""}`}
-                            onClick={()=>setCurrentIndex(index)}
+                              className={`dot ${index===safeIndex ? "dot-active" : ""}`}
+                              onClick={()=>setCurrentIndex(index)}
                         ></span>
                     ))}
                 </div>
